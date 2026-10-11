@@ -3,8 +3,13 @@ import * as dotenv from 'dotenv';
 import { messageCreateEvent } from './events/messageCreate.ts';
 import { interactionCreate } from './events/interactionCreate.ts';
 import { connectDatabase } from './database/connection.ts';
+import { initProjectTable } from './models/Projects.ts';
+import { initUsersTable } from './models/Users.ts';
 dotenv.config();
-connectDatabase()
+connectDatabase().then(() => {
+  initProjectTable();
+  initUsersTable();
+})
 
 
 const client = new Client({

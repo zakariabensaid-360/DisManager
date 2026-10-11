@@ -4,6 +4,8 @@ import {
   ButtonBuilder,
   ButtonStyle,
 } from "discord.js";
+import { getProject } from "../models/Projects.ts";
+import { getProjectByMember } from "../models/Users.ts";
 
 type MessageCreateEvent = {
   name: string;
@@ -19,7 +21,7 @@ const messageCreateEvent: MessageCreateEvent = {
       const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
         new ButtonBuilder()
           .setCustomId("OpenCreateProjectModal")
-          .setLabel("➕ Create New Issue")
+          .setLabel("➕ Create New Project")
           .setStyle(ButtonStyle.Primary),
       );
 
@@ -28,18 +30,26 @@ const messageCreateEvent: MessageCreateEvent = {
       });
     }
 
-    if (message.content === "test") {
-      const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
-        new ButtonBuilder()
-          .setCustomId("open_issue_modal_btn")
-          .setLabel("➕ Create New Issue")
-          .setStyle(ButtonStyle.Primary),
-      );
+  if (message.content === "create-task") {
+  const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
+    new ButtonBuilder()
+      .setCustomId("OpenIssueModalBtn") 
+      .setLabel("➕ Create New Issue")
+      .setStyle(ButtonStyle.Danger),
+  );
 
-      await message.channel.send({
-        components: [row],
-      });
-    }
+  const row2 = new ActionRowBuilder<ButtonBuilder>().addComponents(
+    new ButtonBuilder()
+      .setCustomId("OpenTaskModalBtn") 
+      .setLabel("➕ Create New Task")
+      .setStyle(ButtonStyle.Primary),
+  );
+
+  await message.channel.send({
+    content: "Please select an option below:", // Optional text prompt
+    components: [row, row2],
+  });
+}
   },
 };
 

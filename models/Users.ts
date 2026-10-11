@@ -1,6 +1,6 @@
 import { getDb } from "../database/connection.ts";
 
-export async function initTable() {
+export async function initUsersTable() {
   const db = getDb();
 
   await db.exec(`
@@ -38,6 +38,25 @@ export async function insertUser(DISCORD_ID: string, project_id: number) {
       [DISCORD_ID, JSON.stringify(projectsArray)],
     );
     return { success: true };
+  } catch (error: any) {
+    return { success: false, message: error.message };
+  }
+}
+
+
+
+
+
+export async function getProjectByMember(DISCORD_ID: string) {
+  const db = getDb();
+  try {
+    const data = await db.get(
+      `SELECT * FROM projects WHERE EXISTS (
+         SELECT 1 FROM json_each(team_members) WHERE value = ?
+       )`,
+      [DISCORD_ID]
+    );
+    return { success: true, data };
   } catch (error: any) {
     return { success: false, message: error.message };
   }
