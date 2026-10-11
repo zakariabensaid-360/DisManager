@@ -1,42 +1,41 @@
-==================================================
-1. CREATE PROJECT (إنشاء مشروع)
-==================================================
-• Project Name (Short Input)
-• Project Key (Short Input - e.g. BOT)
-• Project Description (Paragraph Input)
-• Team Members (Short Input - e.g. @user1 @user2)
+# Discord Jira Scrum Bot
 
+A Discord bot built with TypeScript and `discord.js` v14 that brings core Jira & Scrum project management workflows directly into your Discord server using interactive modals and SQLite.
 
-==================================================
-2. CREATE ISSUE / TASK (إنشاء مهمة)
-==================================================
-• Project Key (Short Input - e.g. BOT)
-• Title / Summary (Short Input)
-• Description (Paragraph Input)
-• Issue Type (Short Input - Task / Bug / Story)
-• Priority (Short Input - High / Medium / Low)
-• Story Points (Short Input - e.g. 1, 3, 5, 8)
+## 📋 Features & Modals
 
+### 1. Create Project
+- **Project Name:** Name of your project
+- **Project Key:** Short code/identifier (e.g., `BOT`)
+- **Project Description:** Brief details about the project
+- **Team Members:** Assigned team members
 
-==================================================
-3. CREATE SPRINT (إنشاء دورة عمل)
-==================================================
-• Project Key (Short Input - e.g. BOT)
-• Sprint Name (Short Input - e.g. Sprint 1)
-• Sprint Goal (Paragraph Input)
-• Duration (Short Input - e.g. 2 Weeks)
+### 2. Create Issue / Task
+- **Project Key:** Target project key (e.g., `BOT`)
+- **Title / Summary:** Issue or task title
+- **Description:** Detailed explanation
+- **Issue Type:** Task, Bug, or Story
+- **Priority:** High, Medium, or Low
+- **Story Points:** Estimation (e.g., 1, 3, 5, 8)
 
+### 3. Create Sprint
+- **Project Key:** Target project key (e.g., `BOT`)
+- **Sprint Name:** Name of the sprint (e.g., `Sprint 1`)
+- **Sprint Goal:** Objective for the sprint
+- **Duration:** Timeframe (e.g., `2 Weeks`)
 
-==================================================
-4. ASSIGN ISSUE (تعيين مهمة لعضو)
-==================================================
-• Issue Key (Short Input - e.g. BOT-1)
-• Assignee (Short Input - e.g. @username)
+### 4. Assign Issue
+- **Issue Key:** Specific issue identifier (e.g., `BOT-1`)
+- **Assignee:** User assigned to the task
 
+### 5. Update Status
+- **Issue Key:** Specific issue identifier (e.g., `BOT-1`)
+- **New Status:** To Do, In Progress, or Done
+- **Comment:** Optional status update comment
 
-==================================================
-5. UPDATE STATUS (تحديث حالة المهمة)
-==================================================
-• Issue Key (Short Input - e.g. BOT-1)
-• New Status (Short Input - To Do / In Progress / Done)
-• Comment (Paragraph Input - Optional)
+---
+
+## 🚀 Tech Stack
+- **Language:** TypeScript
+- **Framework:** `discord.js` v14
+- **Database:** SQLite
